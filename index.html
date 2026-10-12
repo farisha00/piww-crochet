@@ -1,0 +1,2591 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Piww Crochet — Crochet With Love</title>
+
+    <meta name="description"
+        content="Piww Crochet — handmade crochet from Setu, Bekasi. Dolls, bags, bouquets, keychains, and custom crochet made with love.">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: "#F7F1E5",
+                        butter: "#E8C95A",
+                        chocolate: "#3A2924",
+                        terracotta: "#C98F76",
+                        dusty: "#DFA7A7",
+                    },
+
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        sans: ["DM Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+
+    <style>
+        /* =========================================
+           GENERAL
+        ========================================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #F7F1E5;
+            color: #3A2924;
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: "Playfair Display", serif;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================== */
+
+        .nav-link {
+            position: relative;
+            transition: color .3s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: #E8C95A;
+            transition: width .3s ease;
+        }
+
+        .nav-link:hover {
+            color: #9B7630;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================== */
+
+        .hero-title {
+            line-height: .95;
+            letter-spacing: -.045em;
+        }
+
+        .float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================== */
+
+        .btn {
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(58, 41, 36, .15);
+        }
+
+
+        /* =========================================
+           PRODUCT CARD
+        ========================================== */
+
+        .product-card {
+            transition:
+                transform .4s ease,
+                box-shadow .4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .16);
+        }
+
+
+        /* =========================================
+           GALLERY
+        ========================================== */
+
+        .gallery-img {
+            transition: transform .6s ease;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.06);
+        }
+
+
+        /* =========================================
+           MOBILE MENU
+        ========================================== */
+
+        #mobileMenu {
+            display: none;
+        }
+
+        #mobileMenu.active {
+            display: block;
+        }
+
+
+        /* =========================================
+           STORY LINE
+        ========================================== */
+
+        .story-line {
+            position: relative;
+        }
+
+        .story-line::before {
+            content: "";
+            position: absolute;
+            left: 23px;
+            top: 25px;
+            bottom: 25px;
+            width: 1px;
+            background: rgba(58, 41, 36, .12);
+        }
+
+
+        /* =========================================
+           SCROLL REVEAL
+        ========================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: reveal .8s ease forwards;
+        }
+
+        @keyframes reveal {
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================================
+   CROCHET THREAD
+========================================= */
+
+        .yarn-thread {
+            stroke-dasharray: 12 10;
+            animation: threadMove 3s linear infinite;
+        }
+
+        @keyframes threadMove {
+            to {
+                stroke-dashoffset: -44;
+            }
+        }
+
+        .yarn-ball {
+            animation: yarnFloat 3s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes yarnFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-5px) rotate(8deg);
+            }
+        }
+
+
+        /* =========================================
+           PIWW INTERACTIVE DETAILS
+        ========================================== */
+        .yarn-thread-second {
+            animation-duration: 4.2s;
+            animation-direction: reverse;
+        }
+
+        .product-card img,
+        .gallery-img {
+            will-change: transform;
+        }
+
+        .piww-reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .piww-reveal.piww-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .piww-delay-1 { transition-delay: .08s; }
+        .piww-delay-2 { transition-delay: .16s; }
+        .piww-delay-3 { transition-delay: .24s; }
+
+        /* Desktop-only cursor yarn trail */
+        #piwwCursorYarn {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 99999;
+            pointer-events: none;
+            overflow: visible;
+            opacity: 0;
+            transition: opacity .15s ease;
+        }
+
+        #piwwCursorYarn.is-active { opacity: 1; }
+        #piwwCursorYarn #piwwCursorThread {
+            fill: none;
+            stroke: #C98F76;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 7 6;
+            filter: drop-shadow(0 1px 2px rgba(58,41,36,.18));
+        }
+
+        #piwwCursorYarn .cursor-yarn-ball {
+            fill: #E8C95A;
+            stroke: #3A2924;
+            stroke-width: 1.5;
+        }
+
+        @media (max-width: 767px) {
+            #piwwCursorYarn { display: none; }
+        }
+
+        /* Mobile storefront inspired by the reference video */
+        .piww-mobile-welcome, .piww-mobile-nav { display: none; }
+        @media (max-width: 767px) {
+            body { padding-bottom: 78px; }
+            header { padding: 10px 12px 0 !important; }
+            header nav { border-radius: 18px !important; padding: 9px 12px !important; background: rgba(247,241,229,.97) !important; box-shadow: 0 5px 18px rgba(58,41,36,.08) !important; }
+            header nav > a:first-child { gap: 8px !important; }
+            header nav > a:first-child > div:first-child { width: 36px !important; height: 36px !important; font-size: 18px !important; }
+            header nav > a:first-child .text-lg { font-size: 15px !important; }
+            #menuButton { width: 36px !important; height: 36px !important; background: #E8C95A; border: 0 !important; }
+            #mobileMenu { margin-top: 8px; border-radius: 18px !important; box-shadow: 0 12px 30px rgba(58,41,36,.14); }
+            main section { scroll-margin-top: 82px; }
+            main#home > section:first-child { min-height: 100svh !important; padding-top: 110px !important; padding-bottom: 48px !important; align-items: flex-start !important; }
+            .hero-title { font-size: clamp(2.7rem, 13vw, 4.3rem) !important; line-height: .98 !important; }
+            main#home > section:first-child .grid { gap: 28px !important; }
+            main#home > section:first-child .grid > div:first-child > div:first-child { margin-bottom: 18px !important; }
+            main#home > section:first-child .grid > div:first-child p { font-size: 14px !important; line-height: 1.7 !important; }
+            main#home > section:first-child .grid > div:last-child { max-width: 390px; margin: 0 auto; }
+            main#home > section:first-child .grid > div:last-child img { max-height: 42svh; object-fit: cover; }
+            section:not(:first-child) { padding-top: 64px !important; padding-bottom: 64px !important; }
+            section h2 { font-size: clamp(2rem, 9vw, 3rem) !important; line-height: 1.05 !important; }
+            .product-card { border-radius: 18px !important; }
+            .piww-mobile-nav { display:flex; position:fixed; z-index:60; left:12px; right:12px; bottom:10px; align-items:center; justify-content:space-around; gap:4px; padding:9px 7px calc(9px + env(safe-area-inset-bottom)); border:1px solid rgba(58,41,36,.12); border-radius:22px; background:rgba(247,241,229,.96); backdrop-filter:blur(16px); box-shadow:0 8px 28px rgba(58,41,36,.15); }
+            .piww-mobile-nav a { min-width:0; flex:1; display:flex; flex-direction:column; align-items:center; gap:3px; color:#3A2924; text-decoration:none; font-size:9px; font-weight:700; }
+            .piww-mobile-nav .nav-icon { width:31px; height:27px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#F1E4CB; font-size:16px; }
+            .piww-mobile-welcome { display:flex; position:fixed; inset:0; z-index:100000; overflow:hidden; flex-direction:column; align-items:center; justify-content:space-between; padding:0 22px calc(24px + env(safe-area-inset-bottom)); background:#F7EBD4; text-align:center; transition:opacity .45s ease, visibility .45s ease; }
+            .piww-mobile-welcome.is-dismissed { opacity:0; visibility:hidden; pointer-events:none; }
+            .piww-welcome-drip { position:absolute; top:0; left:0; right:0; height:68px; background:#3A2924; }
+            .piww-welcome-drip:after { content:""; position:absolute; left:0; right:0; top:48px; height:28px; background:radial-gradient(ellipse 22px 25px at 8% 0,#3A2924 98%,transparent 100%),radial-gradient(ellipse 18px 21px at 27% 0,#3A2924 98%,transparent 100%),radial-gradient(ellipse 26px 28px at 49% 0,#3A2924 98%,transparent 100%),radial-gradient(ellipse 18px 22px at 72% 0,#3A2924 98%,transparent 100%),radial-gradient(ellipse 24px 27px at 92% 0,#3A2924 98%,transparent 100%); }
+            .piww-welcome-top { position:relative; z-index:1; margin-top:86px; }
+            .piww-welcome-mark { display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; background:#E8C95A; border:2px solid #3A2924; font-size:26px; margin-bottom:10px; }
+            .piww-welcome-kicker { font-size:10px; letter-spacing:.24em; text-transform:uppercase; font-weight:800; }
+            .piww-welcome-title { font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(2.7rem, 12vw, 4.1rem); line-height:.9; letter-spacing:-.05em; margin:14px 0 10px; }
+            .piww-welcome-title span { display:block; color:#C98F76; font-style:italic; }
+            .piww-welcome-tagline { font-size:12px; letter-spacing:.08em; margin-top:14px; }
+            .piww-welcome-art { width:min(76vw,310px); height:min(39svh,330px); object-fit:contain; border-radius:22px; mix-blend-mode:multiply; }
+            .piww-welcome-bottom { width:100%; position:relative; z-index:1; }
+            .piww-open-button { display:block; width:min(220px,80%); margin:0 auto; padding:14px 20px; border:2px solid #3A2924; border-radius:999px; background:#3A2924; color:#F7F1E5; font-weight:800; letter-spacing:.12em; text-transform:uppercase; box-shadow:0 5px 0 #C98F76; }
+            .piww-welcome-foot { margin-top:16px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.7; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+            .piww-reveal { opacity: 1; transform: none; }
+        }
+
+
+
+        /* Extra mobile polish: cookie-shop inspired, while preserving desktop */
+        @media (max-width: 767px) {
+            html { scroll-behavior: smooth; }
+            body { background: #F7EBD4; overflow-x: hidden; }
+            header { z-index: 80 !important; }
+            header nav { border: 1.5px solid rgba(58,41,36,.13) !important; }
+            header nav > a:first-child > div:first-child { box-shadow: 0 3px 0 rgba(58,41,36,.12); }
+            #menuButton { border-radius: 12px !important; box-shadow: 0 3px 0 rgba(58,41,36,.12); }
+            main#home > section:first-child { position: relative; overflow: hidden; background: #F7EBD4 !important; }
+            main#home > section:first-child:before { content: ""; position:absolute; top:0; left:0; right:0; height:12px; background: repeating-linear-gradient(90deg,#3A2924 0 24px,#F7EBD4 24px 44px); opacity:.95; }
+            main#home > section:first-child:after { content:"♡  HANDMADE WITH LOVE  ♡"; display:block; position:absolute; bottom:18px; left:0; right:0; text-align:center; font-size:9px; font-weight:800; letter-spacing:.22em; color:#8D6C54; }
+            main#home > section:first-child .grid { position:relative; z-index:1; }
+            main#home > section:first-child .grid > div:last-child { position:relative; padding:9px; border:1.5px solid rgba(58,41,36,.15); border-radius:26px; background:#FFFAF0; box-shadow:0 7px 0 #E7D5B9; }
+            main#home > section:first-child .grid > div:last-child:before { content:"PIWW'S LITTLE WORLD"; display:block; padding:3px 0 10px; font-size:9px; font-weight:800; letter-spacing:.2em; color:#8D6C54; text-align:center; }
+            main#home > section:first-child .grid > div:last-child img { width:100%; border-radius:18px !important; }
+            .hero-title { letter-spacing:-.055em !important; }
+            .btn { min-height:46px; border-radius:999px !important; box-shadow:0 4px 0 rgba(58,41,36,.15); }
+            section:not(:first-child) { position:relative; }
+            section h2 { letter-spacing:-.04em; }
+            .product-card { background:#FFFAF0 !important; border:1px solid rgba(58,41,36,.1); box-shadow:0 5px 0 #E7D5B9; overflow:hidden; }
+            .product-card img { border-radius:14px !important; }
+            .gallery-card { border:4px solid #FFFAF0; box-shadow:0 4px 0 #E7D5B9; }
+            #contact { border-radius:28px 28px 0 0; }
+            .piww-mobile-nav { bottom:calc(9px + env(safe-area-inset-bottom)); padding:8px 7px calc(8px + env(safe-area-inset-bottom)); border:1.5px solid rgba(58,41,36,.15); background:rgba(255,250,240,.96); }
+            .piww-mobile-nav a { padding:2px 0; transition:transform .2s ease; }
+            .piww-mobile-nav a:active { transform:scale(.94); }
+            .piww-mobile-nav .nav-icon { background:#F0DFC0; border:1px solid rgba(58,41,36,.06); }
+            .piww-mobile-nav a:first-child .nav-icon { background:#E8C95A; }
+            .piww-mobile-welcome { background:radial-gradient(ellipse at 50% 45%,#FFF9EC 0%,#F7EBD4 68%,#EED9B8 100%); }
+            .piww-welcome-top { margin-top:clamp(74px,11svh,100px); }
+            .piww-welcome-mark { box-shadow:0 4px 0 #C98F76; animation:piwwMarkFloat 3s ease-in-out infinite; }
+            .piww-welcome-title { text-shadow:0 2px 0 rgba(201,143,118,.12); }
+            .piww-welcome-art { padding:7px; background:rgba(255,250,240,.72); border:1px solid rgba(58,41,36,.12); box-shadow:0 8px 0 #E7D5B9; }
+            .piww-open-button { transition:transform .18s ease, box-shadow .18s ease; }
+            .piww-open-button:active { transform:translateY(3px); box-shadow:0 2px 0 #C98F76; }
+            @keyframes piwwMarkFloat { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-5px) rotate(3deg)} }
+        }
+        @media (max-width: 380px) {
+            .piww-welcome-top { margin-top:72px; }
+            .piww-welcome-title { font-size:clamp(2.45rem,11.5vw,3.1rem); }
+            .piww-welcome-art { height:min(34svh,260px); }
+            .piww-mobile-nav .nav-icon { width:28px; height:25px; }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- Mobile welcome screen inspired by the reference video -->
+    <div class="piww-mobile-welcome" id="piwwMobileWelcome" aria-label="Welcome to Piww Crochet">
+        <div class="piww-welcome-drip" aria-hidden="true"></div>
+        <div class="piww-welcome-top">
+            <div class="piww-welcome-mark">🧶</div>
+            <div class="piww-welcome-kicker">Handmade with love</div>
+            <h1 class="piww-welcome-title">PIWW <span>CROCHET</span></h1>
+            <p class="piww-welcome-tagline">Little stitches, lots of love ♡</p>
+        </div>
+        <img class="piww-welcome-art" src="assets/logo.jpeg" alt="Handmade crochet creation by Piww Crochet">
+        <div class="piww-welcome-bottom">
+            <button type="button" class="piww-open-button" id="piwwOpenWelcome">Open ♡</button>
+            <div class="piww-welcome-foot">Made by hand · Setu, Bekasi</div>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         NAVBAR
+    =================================================== -->
+
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4">
+
+        <nav class="max-w-7xl mx-auto
+            bg-[#F7F1E5]/90
+            backdrop-blur-md
+            border border-[#3A2924]/10
+            rounded-full
+            px-5 sm:px-7
+            py-3.5
+            flex items-center justify-between
+            shadow-sm">
+
+
+            <!-- BRAND -->
+
+            <a href="#home" class="flex items-center gap-3">
+
+                <div class="w-10 h-10
+                    rounded-full
+                    bg-[#E8C95A]
+                    flex items-center justify-center
+                    text-xl">
+                    🧶
+                </div>
+
+
+                <div class="leading-none">
+
+                    <div class="font-display
+                        font-bold
+                        text-lg sm:text-xl">
+                        Piww Crochet
+                    </div>
+
+                    <div class="text-[9px]
+                        tracking-[0.25em]
+                        uppercase
+                        opacity-60
+                        mt-1">
+                        Crochet With Love
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- DESKTOP MENU -->
+
+            <div class="hidden md:flex
+                items-center
+                gap-7
+                text-sm
+                font-semibold">
+
+                <a href="#home" class="nav-link">
+                    Home
+                </a>
+
+                <a href="#shop" class="nav-link">
+                    Shop
+                </a>
+
+                <a href="#collections" class="nav-link">
+                    Collections
+                </a>
+
+                <a href="#custom" class="nav-link">
+                    Custom
+                </a>
+
+                <a href="#about" class="nav-link">
+                    Our Story
+                </a>
+
+                <a href="#contact" class="nav-link">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <a href="https://wa.me/6283879288350" target="_blank" class="hidden md:inline-flex
+                bg-[#3A2924]
+                text-[#F7F1E5]
+                rounded-full
+                px-5 py-2.5
+                text-sm
+                font-bold
+                btn">
+                Chat to Order
+            </a>
+
+
+            <!-- MOBILE BUTTON -->
+
+            <button id="menuButton" class="md:hidden
+                w-10 h-10
+                rounded-full
+                border border-[#3A2924]/20
+                flex items-center
+                justify-center" aria-label="Open menu">
+                ☰
+            </button>
+
+        </nav>
+
+
+        <!-- MOBILE MENU -->
+
+        <div id="mobileMenu" class="md:hidden
+            max-w-7xl mx-auto
+            mt-2
+            bg-[#F7F1E5]
+            border border-[#3A2924]/10
+            rounded-3xl
+            p-5
+            shadow-lg">
+
+            <div class="flex flex-col
+                gap-4
+                text-sm
+                font-semibold">
+
+                <a href="#home" class="mobile-link">
+                    Home
+                </a>
+
+                <a href="#shop" class="mobile-link">
+                    Shop
+                </a>
+
+                <a href="#collections" class="mobile-link">
+                    Collections
+                </a>
+
+                <a href="#custom" class="mobile-link">
+                    Custom
+                </a>
+
+                <a href="#about" class="mobile-link">
+                    Our Story
+                </a>
+
+                <a href="#contact" class="mobile-link">
+                    Contact
+                </a>
+
+
+                <a href="https://wa.me/6283879288350" target="_blank" class="bg-[#3A2924]
+                    text-[#F7F1E5]
+                    text-center
+                    rounded-full
+                    py-3
+                    font-bold">
+                    Chat to Order ♡
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
+    <main id="home">
+
+
+        <section class="min-h-screen
+            relative
+            overflow-hidden
+            pt-36
+            pb-24
+            flex items-center">
+
+            <div class="max-w-7xl
+                mx-auto
+                px-5 sm:px-8
+                w-full">
+
+                <div class="grid
+                    lg:grid-cols-2
+                    gap-14 lg:gap-20
+                    items-center">
+
+
+                    <!-- HERO TEXT -->
+
+                    <div class="relative z-10 reveal">
+
+                        <div class="inline-flex
+                            items-center
+                            gap-2
+                            border border-[#3A2924]/15
+                            rounded-full
+                            px-4 py-2
+                            text-xs sm:text-sm
+                            font-semibold
+                            mb-7">
+
+                            <span class="w-2 h-2
+                                rounded-full
+                                bg-[#E8C95A]"></span>
+
+                            Handmade in Setu, Bekasi
+
+                        </div>
+
+
+                        <h1 class="hero-title
+                            font-display
+                            text-6xl
+                            sm:text-7xl
+                            lg:text-[6.7rem]
+                            font-semibold">
+
+                            Made by hand,
+
+                            <span class="block
+                                italic
+                                text-[#C98F76]">
+                                made with love.
+                            </span>
+
+                        </h1>
+
+
+                        <p class="mt-7
+                            max-w-xl
+                            text-base
+                            sm:text-lg
+                            leading-relaxed
+                            text-[#3A2924]/70">
+                            Little crochet pieces made slowly,
+                            thoughtfully, and with lots of love.
+                            From everyday companions to thoughtful
+                            gifts and custom creations.
+                        </p>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="mt-9
+                            flex flex-wrap
+                            gap-3">
+
+                            <a href="#shop" class="btn
+                                inline-flex
+                                items-center
+                                gap-2
+                                bg-[#3A2924]
+                                text-[#F7F1E5]
+                                rounded-full
+                                px-6 py-3.5
+                                font-bold">
+                                Explore the pieces
+                                <span>↗</span>
+                            </a>
+
+
+                            <a href="#custom" class="btn
+                                inline-flex
+                                items-center
+                                gap-2
+                                border border-[#3A2924]/25
+                                rounded-full
+                                px-6 py-3.5
+                                font-bold">
+                                Custom order
+                                <span>♡</span>
+                            </a>
+
+                        </div>
+
+
+                        <!-- MINI INFO -->
+
+                        <div class="mt-10
+                            flex flex-wrap
+                            gap-x-7
+                            gap-y-3
+                            text-xs sm:text-sm
+                            text-[#3A2924]/60">
+
+                            <span>
+                                ✦ Handmade
+                            </span>
+
+                            <span>
+                                ✦ Made to order
+                            </span>
+
+                            <span>
+                                ✦ Custom by request
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- HERO VISUAL -->
+
+                    <div class="relative
+                        min-h-[430px]
+                        sm:min-h-[520px]
+                        flex items-center
+                        justify-center">
+
+                        <!-- YELLOW CIRCLE -->
+
+                        <div class="absolute
+                            w-[310px]
+                            h-[310px]
+                            sm:w-[440px]
+                            sm:h-[440px]
+                            rounded-full
+                            bg-[#E8C95A]/25"></div>
+
+
+                        <!-- BORDER CIRCLE -->
+
+                        <div class="absolute
+                            w-[240px]
+                            h-[240px]
+                            sm:w-[350px]
+                            sm:h-[350px]
+                            rounded-full
+                            border border-[#3A2924]/10"></div>
+
+
+                        <!-- REAL PIWW LOGO -->
+
+                        <div class="float
+                            relative z-10
+                            w-[275px]
+                            h-[275px]
+                            sm:w-[360px]
+                            sm:h-[360px]
+                            bg-[#F7F1E5]
+                            rounded-[3rem]
+                            border border-[#3A2924]/10
+                            shadow-xl
+                            flex items-center
+                            justify-center
+                            p-7 sm:p-9">
+
+                            <img src="assets/logo.jpeg" alt="Piww Crochet - Crochet With Love" class="w-full
+                                max-w-[300px]
+                                max-h-[300px]
+                                object-contain">
+
+                        </div>
+
+
+                        <!-- FLOATING LABEL -->
+
+                        <div class="absolute
+                            top-8
+                            right-0
+                            sm:right-4
+                            bg-[#3A2924]
+                            text-[#F7F1E5]
+                            rounded-2xl
+                            px-4 py-3
+                            text-xs
+                            font-bold
+                            shadow-lg">
+                            ♡ made slowly
+                        </div>
+
+
+                        <div class="absolute
+                            bottom-8
+                            left-0
+                            sm:left-2
+                            bg-white/70
+                            backdrop-blur-sm
+                            border border-[#3A2924]/10
+                            rounded-2xl
+                            px-4 py-3
+                            text-xs
+                            font-bold
+                            shadow-sm">
+                            🧶 one stitch at a time
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SHOP
+        =================================================== -->
+
+        <section id="shop" class="bg-[#3A2924]
+            text-[#F7F1E5]
+            py-24 sm:py-28 lg:py-32">
+
+            <div class="max-w-7xl
+                mx-auto
+                px-5 sm:px-8">
+
+                <!-- HEADER -->
+
+                <div class="max-w-2xl">
+
+                    <p class="uppercase
+                        tracking-[0.3em]
+                        text-xs
+                        text-[#E8C95A]
+                        font-bold">
+                        Our little creations
+                    </p>
+
+
+                    <h2 class="font-display
+                        text-5xl
+                        sm:text-6xl
+                        lg:text-7xl
+                        mt-4
+                        leading-tight">
+                        Little things,
+
+                        <span class="italic
+                            text-[#DFA7A7]">
+                            made by hand.
+                        </span>
+                    </h2>
+
+
+                    <p class="mt-6
+                        text-[#F7F1E5]/65
+                        max-w-lg
+                        leading-relaxed">
+                        From tiny companions to everyday pieces,
+                        every crochet is made one stitch at a time.
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCTS -->
+
+                <div class="mt-14
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    lg:grid-cols-12
+                    gap-5">
+
+
+                    <!-- DOLLS -->
+
+                    <article class="product-card
+                        group
+                        lg:col-span-7
+                        relative
+                        overflow-hidden
+                        rounded-[2rem]
+                        min-h-[430px]
+                        bg-[#F7F1E5]">
+
+                        <img src="assets/anya/anya.jpeg" alt="Boneka crochet Piww Crochet" class="absolute
+                            inset-0
+                            w-full h-full
+                            object-cover
+                            gallery-img">
+
+                        <div class="absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-black/70
+                            via-black/5
+                            to-transparent"></div>
+
+
+                        <div class="absolute
+                            top-5 left-5
+                            bg-[#F7F1E5]/90
+                            text-[#3A2924]
+                            rounded-full
+                            px-4 py-2
+                            text-xs
+                            font-bold">
+                            01
+                        </div>
+
+
+                        <div class="absolute
+                            bottom-0
+                            left-0
+                            right-0
+                            p-7">
+
+                            <p class="text-xs
+                                uppercase
+                                tracking-[0.25em]
+                                text-white/60">
+                                Handmade
+                            </p>
+
+                            <h3 class="font-display
+                                text-4xl
+                                mt-1">
+                                Dolls
+                            </h3>
+
+                            <p class="text-white/70
+                                text-sm
+                                mt-2">
+                                Little crochet characters made with love.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BAGS -->
+
+                    <article class="product-card
+                        group
+                        lg:col-span-5
+                        relative
+                        overflow-hidden
+                        rounded-[2rem]
+                        min-h-[430px]
+                        bg-[#F7F1E5]">
+
+                        <img src="assets/anya/tasmerah.jpeg" alt="Tas crochet Piww Crochet" class="absolute
+                            inset-0
+                            w-full h-full
+                            object-cover
+                            gallery-img">
+
+                        <div class="absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-black/70
+                            via-transparent
+                            to-transparent"></div>
+
+
+                        <div class="absolute
+                            top-5 left-5
+                            bg-[#F7F1E5]/90
+                            text-[#3A2924]
+                            rounded-full
+                            px-4 py-2
+                            text-xs
+                            font-bold">
+                            02
+                        </div>
+
+
+                        <div class="absolute
+                            bottom-0
+                            left-0
+                            right-0
+                            p-7">
+
+                            <p class="text-xs
+                                uppercase
+                                tracking-[0.25em]
+                                text-white/60">
+                                Everyday crochet
+                            </p>
+
+                            <h3 class="font-display
+                                text-4xl
+                                mt-1">
+                                Bags
+                            </h3>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- SMALL PIECES -->
+
+                    <article class="product-card
+                        group
+                        lg:col-span-4
+                        relative
+                        overflow-hidden
+                        rounded-[2rem]
+                        min-h-[360px]
+                        bg-[#F7F1E5]">
+
+                        <img src="assets/anya/pitamerah.jpeg" alt="Pita crochet Piww Crochet" class="absolute
+                            inset-0
+                            w-full h-full
+                            object-cover
+                            gallery-img">
+
+                        <div class="absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-black/70
+                            via-transparent
+                            to-transparent"></div>
+
+
+                        <div class="absolute
+                            top-5 left-5
+                            bg-[#F7F1E5]/90
+                            text-[#3A2924]
+                            rounded-full
+                            px-4 py-2
+                            text-xs
+                            font-bold">
+                            03
+                        </div>
+
+
+                        <div class="absolute
+                            bottom-0
+                            left-0
+                            right-0
+                            p-7">
+
+                            <p class="text-xs
+                                uppercase
+                                tracking-[0.25em]
+                                text-white/60">
+                                Tiny things
+                            </p>
+
+                            <h3 class="font-display
+                                text-3xl
+                                mt-1">
+                                Little Pieces
+                            </h3>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BOUQUET -->
+
+                    <article class="product-card
+                        group
+                        lg:col-span-4
+                        relative
+                        overflow-hidden
+                        rounded-[2rem]
+                        min-h-[360px]
+                        bg-[#F7F1E5]">
+
+                        <img src="assets/buket/buket.jpeg" alt="Buket crochet Piww Crochet" class="absolute
+                            inset-0
+                            w-full h-full
+                            object-cover
+                            gallery-img">
+
+                        <div class="absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-black/70
+                            via-transparent
+                            to-transparent"></div>
+
+
+                        <div class="absolute
+                            top-5 left-5
+                            bg-[#F7F1E5]/90
+                            text-[#3A2924]
+                            rounded-full
+                            px-4 py-2
+                            text-xs
+                            font-bold">
+                            04
+                        </div>
+
+
+                        <div class="absolute
+                            bottom-0
+                            left-0
+                            right-0
+                            p-7">
+
+                            <p class="text-xs
+                                uppercase
+                                tracking-[0.25em]
+                                text-white/60">
+                                For gifting
+                            </p>
+
+                            <h3 class="font-display
+                                text-3xl
+                                mt-1">
+                                Bouquets
+                            </h3>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CUSTOM CARD -->
+
+                    <article class="lg:col-span-4
+                        rounded-[2rem]
+                        bg-[#E8C95A]
+                        text-[#3A2924]
+                        min-h-[360px]
+                        p-7
+                        flex flex-col
+                        justify-between">
+
+                        <div>
+
+                            <span class="text-3xl">
+                                🧶
+                            </span>
+
+                            <p class="mt-6
+                                text-xs
+                                uppercase
+                                tracking-[0.25em]
+                                font-bold">
+                                Have an idea?
+                            </p>
+
+                            <h3 class="font-display
+                                text-4xl
+                                mt-2
+                                leading-tight">
+                                Let's make
+                                something
+                                personal.
+                            </h3>
+
+                        </div>
+
+
+                        <a href="#custom" class="inline-flex
+                            items-center
+                            justify-between
+                            border border-[#3A2924]/25
+                            rounded-full
+                            px-5 py-3
+                            font-bold
+                            text-sm">
+
+                            Custom request
+
+                            <span>↗</span>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+     WHAT WE MAKE
+=================================================== -->
+
+        <section id="collections" class="relative overflow-hidden
+    bg-[#F7F1E5]
+    py-24 sm:py-28 lg:py-32">
+
+            <!-- DECORATIVE YARN: DOUBLE THREAD -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80"
+                viewBox="0 0 1200 850" preserveAspectRatio="none" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M-50 170 C120 60 180 280 330 180 C470 85 520 300 650 205 C780 110 850 300 1000 210 C1120 135 1190 250 1250 190"
+                    stroke="#C98F76" stroke-width="4" stroke-linecap="round" class="yarn-thread" opacity="0.7" />
+                <path d="M-40 650 C130 560 190 760 350 650 C500 545 570 730 710 640 C850 550 930 740 1080 640 C1150 595 1200 650 1240 610"
+                    stroke="#E8C95A" stroke-width="3" stroke-linecap="round" class="yarn-thread yarn-thread-second" opacity="0.8" />
+                <g class="yarn-ball" transform="translate(1080 210)">
+                    <circle cx="0" cy="0" r="22" fill="#E8C95A" />
+                    <path d="M-13 -5 C-5 -18 12 -14 15 -3 C18 8 7 17 -7 13 C-18 10 -18 -1 -13 -5Z"
+                        stroke="#3A2924" stroke-width="2" fill="none" />
+                    <path d="M-10 8 C0 2 8 3 13 9" stroke="#3A2924" stroke-width="1.5" fill="none" />
+                </g>
+            </svg>
+
+
+            <div class="relative z-10
+        max-w-7xl
+        mx-auto
+        px-5 sm:px-8">
+
+
+                <!-- HEADER -->
+
+                <div class="max-w-3xl
+            mx-auto
+            text-center">
+
+                    <p class="uppercase
+                tracking-[0.3em]
+                text-xs
+                text-[#C98F76]
+                font-bold">
+                        What we make
+                    </p>
+
+
+                    <h2 class="font-display
+                text-5xl
+                sm:text-6xl
+                lg:text-7xl
+                mt-4
+                leading-tight">
+
+                        Little things,
+                        <span class="italic
+                    text-[#C98F76]">
+                            made with love.
+                        </span>
+
+                    </h2>
+
+
+                    <p class="mt-6
+                max-w-xl
+                mx-auto
+                text-[#3A2924]/60
+                leading-relaxed">
+                        From tiny companions to thoughtful gifts,
+                        every piece begins with a strand of yarn
+                        and a little imagination.
+                    </p>
+
+                </div>
+
+
+
+                <!-- COLLECTIONS -->
+
+                <div class="mt-16
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+            gap-5">
+
+
+                    <!-- DOLLS -->
+
+                    <a href="#shop" class="group
+                relative
+                bg-[#EFE5D5]
+                rounded-[2rem]
+                p-7
+                min-h-[270px]
+                flex flex-col
+                justify-between
+                overflow-hidden
+                transition duration-500
+                hover:-translate-y-2
+                hover:shadow-xl">
+
+                        <span class="absolute
+                    -right-5
+                    -top-5
+                    text-[100px]
+                    opacity-10
+                    transition
+                    duration-500
+                    group-hover:scale-110">
+                            🧸
+                        </span>
+
+
+                        <div>
+
+                            <span class="text-xs
+                        tracking-[0.2em]
+                        uppercase
+                        font-bold
+                        text-[#C98F76]">
+                                01
+                            </span>
+
+                            <h3 class="font-display
+                        text-3xl
+                        mt-3">
+                                Dolls
+                            </h3>
+
+                            <p class="mt-3
+                        text-sm
+                        leading-relaxed
+                        text-[#3A2924]/55">
+                                Tiny crochet friends
+                                made to keep close.
+                            </p>
+
+                        </div>
+
+
+                        <span class="text-sm
+                    font-bold
+                    flex items-center
+                    gap-2
+                    group-hover:gap-3
+                    transition-all">
+                            See pieces
+                            <span>↗</span>
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- BAGS -->
+
+                    <a href="#shop" class="group
+                relative
+                bg-[#E8C95A]/40
+                rounded-[2rem]
+                p-7
+                min-h-[270px]
+                flex flex-col
+                justify-between
+                overflow-hidden
+                transition duration-500
+                hover:-translate-y-2
+                hover:shadow-xl">
+
+                        <span class="absolute
+                    -right-5
+                    -top-5
+                    text-[100px]
+                    opacity-10
+                    transition
+                    duration-500
+                    group-hover:scale-110">
+                            👜
+                        </span>
+
+
+                        <div>
+
+                            <span class="text-xs
+                        tracking-[0.2em]
+                        uppercase
+                        font-bold
+                        text-[#8C6B2D]">
+                                02
+                            </span>
+
+                            <h3 class="font-display
+                        text-3xl
+                        mt-3">
+                                Bags
+                            </h3>
+
+                            <p class="mt-3
+                        text-sm
+                        leading-relaxed
+                        text-[#3A2924]/55">
+                                Handmade bags for
+                                everyday little adventures.
+                            </p>
+
+                        </div>
+
+
+                        <span class="text-sm
+                    font-bold
+                    flex items-center
+                    gap-2
+                    group-hover:gap-3
+                    transition-all">
+                            See pieces
+                            <span>↗</span>
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- CHARMS -->
+
+                    <a href="#shop" class="group
+                relative
+                bg-[#DFA7A7]/35
+                rounded-[2rem]
+                p-7
+                min-h-[270px]
+                flex flex-col
+                justify-between
+                overflow-hidden
+                transition duration-500
+                hover:-translate-y-2
+                hover:shadow-xl">
+
+                        <span class="absolute
+                    -right-5
+                    -top-5
+                    text-[100px]
+                    opacity-10
+                    transition
+                    duration-500
+                    group-hover:scale-110">
+                            🔑
+                        </span>
+
+
+                        <div>
+
+                            <span class="text-xs
+                        tracking-[0.2em]
+                        uppercase
+                        font-bold
+                        text-[#A86F6F]">
+                                03
+                            </span>
+
+                            <h3 class="font-display
+                        text-3xl
+                        mt-3">
+                                Charms
+                            </h3>
+
+                            <p class="mt-3
+                        text-sm
+                        leading-relaxed
+                        text-[#3A2924]/55">
+                                Small crochet pieces
+                                for bags, keys, and gifts.
+                            </p>
+
+                        </div>
+
+
+                        <span class="text-sm
+                    font-bold
+                    flex items-center
+                    gap-2
+                    group-hover:gap-3
+                    transition-all">
+                            See pieces
+                            <span>↗</span>
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- BOUQUETS -->
+
+                    <a href="#shop" class="group
+                relative
+                bg-[#C98F76]/20
+                rounded-[2rem]
+                p-7
+                min-h-[270px]
+                flex flex-col
+                justify-between
+                overflow-hidden
+                transition duration-500
+                hover:-translate-y-2
+                hover:shadow-xl">
+
+                        <span class="absolute
+                    -right-5
+                    -top-5
+                    text-[100px]
+                    opacity-10
+                    transition
+                    duration-500
+                    group-hover:scale-110">
+                            💐
+                        </span>
+
+
+                        <div>
+
+                            <span class="text-xs
+                        tracking-[0.2em]
+                        uppercase
+                        font-bold
+                        text-[#A96F58]">
+                                04
+                            </span>
+
+                            <h3 class="font-display
+                        text-3xl
+                        mt-3">
+                                Bouquets
+                            </h3>
+
+                            <p class="mt-3
+                        text-sm
+                        leading-relaxed
+                        text-[#3A2924]/55">
+                                Flowers that stay,
+                                made for someone special.
+                            </p>
+
+                        </div>
+
+
+                        <span class="text-sm
+                    font-bold
+                    flex items-center
+                    gap-2
+                    group-hover:gap-3
+                    transition-all">
+                            See pieces
+                            <span>↗</span>
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- CUSTOM MINI CTA -->
+
+                <div class="mt-8
+            rounded-[2rem]
+            border border-[#3A2924]/10
+            bg-white/40
+            p-6 sm:p-8
+            flex flex-col
+            sm:flex-row
+            items-start
+            sm:items-center
+            justify-between
+            gap-5">
+
+                    <div>
+
+                        <p class="text-xs
+                    uppercase
+                    tracking-[0.2em]
+                    font-bold
+                    text-[#C98F76]">
+                            Can't find what you imagined?
+                        </p>
+
+                        <h3 class="font-display
+                    text-2xl
+                    sm:text-3xl
+                    mt-1">
+                            Tell Piww about it. ♡
+                        </h3>
+
+                    </div>
+
+
+                    <a href="#custom" class="btn
+                shrink-0
+                inline-flex
+                items-center
+                gap-2
+                bg-[#3A2924]
+                text-[#F7F1E5]
+                rounded-full
+                px-6 py-3.5
+                text-sm
+                font-bold">
+                        Custom request
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CUSTOM ORDER
+        =================================================== -->
+
+        <section id="custom" class="bg-[#F7F1E5]
+            py-24 sm:py-28 lg:py-32">
+
+            <div class="max-w-7xl
+                mx-auto
+                px-5 sm:px-8">
+
+                <div class="grid
+                    lg:grid-cols-2
+                    gap-14 lg:gap-20
+                    items-center">
+
+
+                    <!-- TEXT -->
+
+                    <div>
+
+                        <p class="uppercase
+                            tracking-[0.3em]
+                            text-xs
+                            text-[#C98F76]
+                            font-bold">
+                            Made for you
+                        </p>
+
+
+                        <h2 class="font-display
+                            text-5xl
+                            sm:text-6xl
+                            lg:text-7xl
+                            mt-4
+                            leading-tight">
+
+                            Have something
+
+                            <span class="italic
+                                text-[#C98F76]">
+                                in mind?
+                            </span>
+
+                        </h2>
+
+
+                        <p class="mt-6
+                            text-[#3A2924]/65
+                            text-base
+                            sm:text-lg
+                            leading-relaxed
+                            max-w-xl">
+                            Punya ide crochet sendiri?
+                            Ceritakan ke Piww Crochet dan kita
+                            lihat apakah bisa dibuat menjadi
+                            sesuatu yang spesial untukmu. ♡
+                        </p>
+
+
+                        <a href="https://wa.me/6283879288350?text=Hi%20Piww%20Crochet!%20Aku%20mau%20tanya%20tentang%20custom%20crochet%20dong%20%F0%9F%A7%B6"
+                            target="_blank" class="btn
+                            mt-8
+                            inline-flex
+                            items-center
+                            gap-3
+                            bg-[#3A2924]
+                            text-[#F7F1E5]
+                            rounded-full
+                            px-7 py-4
+                            font-bold">
+
+                            Tell us your idea
+
+                            <span>↗</span>
+
+                        </a>
+
+
+                        <p class="mt-4
+                            text-xs
+                            text-[#3A2924]/45">
+                            Custom requests are reviewed first before we confirm.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- PROCESS -->
+
+                    <div class="story-line">
+
+                        <div class="space-y-5">
+
+
+                            <!-- STEP 01 -->
+
+                            <div class="relative
+                                flex gap-5
+                                items-start
+                                bg-white/60
+                                border border-[#3A2924]/8
+                                rounded-[1.75rem]
+                                p-6">
+
+                                <div class="relative z-10
+                                    w-12 h-12
+                                    shrink-0
+                                    rounded-full
+                                    bg-[#E8C95A]
+                                    flex items-center
+                                    justify-center
+                                    font-display
+                                    font-bold">
+                                    01
+                                </div>
+
+
+                                <div>
+
+                                    <p class="text-xs
+                                        uppercase
+                                        tracking-[0.2em]
+                                        text-[#3A2924]/40
+                                        font-bold">
+                                        First
+                                    </p>
+
+                                    <h3 class="font-display
+                                        text-2xl
+                                        mt-1">
+                                        Tell us your idea
+                                    </h3>
+
+                                    <p class="mt-2
+                                        text-sm
+                                        leading-relaxed
+                                        text-[#3A2924]/60">
+                                        Ceritakan benda, karakter,
+                                        warna, atau bentuk yang
+                                        ingin kamu buat.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- STEP 02 -->
+
+                            <div class="relative
+                                flex gap-5
+                                items-start
+                                bg-white/60
+                                border border-[#3A2924]/8
+                                rounded-[1.75rem]
+                                p-6">
+
+                                <div class="relative z-10
+                                    w-12 h-12
+                                    shrink-0
+                                    rounded-full
+                                    bg-[#DFA7A7]
+                                    flex items-center
+                                    justify-center
+                                    font-display
+                                    font-bold">
+                                    02
+                                </div>
+
+
+                                <div>
+
+                                    <p class="text-xs
+                                        uppercase
+                                        tracking-[0.2em]
+                                        text-[#3A2924]/40
+                                        font-bold">
+                                        Next
+                                    </p>
+
+                                    <h3 class="font-display
+                                        text-2xl
+                                        mt-1">
+                                        We check the request
+                                    </h3>
+
+                                    <p class="mt-2
+                                        text-sm
+                                        leading-relaxed
+                                        text-[#3A2924]/60">
+                                        Setiap request akan dicek
+                                        terlebih dahulu untuk melihat
+                                        apakah bisa dibuat.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- STEP 03 -->
+
+                            <div class="relative
+                                flex gap-5
+                                items-start
+                                bg-white/60
+                                border border-[#3A2924]/8
+                                rounded-[1.75rem]
+                                p-6">
+
+                                <div class="relative z-10
+                                    w-12 h-12
+                                    shrink-0
+                                    rounded-full
+                                    bg-[#C98F76]
+                                    text-white
+                                    flex items-center
+                                    justify-center
+                                    font-display
+                                    font-bold">
+                                    03
+                                </div>
+
+
+                                <div>
+
+                                    <p class="text-xs
+                                        uppercase
+                                        tracking-[0.2em]
+                                        text-[#3A2924]/40
+                                        font-bold">
+                                        Then
+                                    </p>
+
+                                    <h3 class="font-display
+                                        text-2xl
+                                        mt-1">
+                                        Discuss the details
+                                    </h3>
+
+                                    <p class="mt-2
+                                        text-sm
+                                        leading-relaxed
+                                        text-[#3A2924]/60">
+                                        Kalau request bisa dibuat,
+                                        kita lanjut ngobrol soal
+                                        detail dan pesanan.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- STEP 04 -->
+
+                            <div class="relative
+                                flex gap-5
+                                items-start
+                                bg-[#3A2924]
+                                text-[#F7F1E5]
+                                rounded-[1.75rem]
+                                p-6
+                                shadow-lg">
+
+                                <div class="relative z-10
+                                    w-12 h-12
+                                    shrink-0
+                                    rounded-full
+                                    bg-[#E8C95A]
+                                    text-[#3A2924]
+                                    flex items-center
+                                    justify-center
+                                    font-display
+                                    font-bold">
+                                    04
+                                </div>
+
+
+                                <div>
+
+                                    <p class="text-xs
+                                        uppercase
+                                        tracking-[0.2em]
+                                        text-white/45
+                                        font-bold">
+                                        Finally
+                                    </p>
+
+                                    <h3 class="font-display
+                                        text-2xl
+                                        mt-1">
+                                        Let's make it ♡
+                                    </h3>
+
+                                    <p class="mt-2
+                                        text-sm
+                                        leading-relaxed
+                                        text-white/60">
+                                        Saatnya mengubah ide kecilmu
+                                        menjadi crochet handmade.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             OUR STORY
+        =================================================== -->
+
+        <section id="about" class="bg-[#EFE5D5]
+            py-24 sm:py-28 lg:py-32">
+
+            <div class="max-w-7xl
+                mx-auto
+                px-5 sm:px-8">
+
+                <div class="grid
+                    lg:grid-cols-2
+                    gap-14 lg:gap-24
+                    items-center">
+
+
+                    <!-- STORY TEXT -->
+
+                    <div>
+
+                        <p class="uppercase
+                            tracking-[0.3em]
+                            text-xs
+                            text-[#C98F76]
+                            font-bold">
+                            A little story
+                        </p>
+
+
+                        <h2 class="font-display
+                            text-5xl
+                            sm:text-6xl
+                            mt-4
+                            leading-tight">
+                            It started with
+                            <span class="italic">
+                                a little curiosity.
+                            </span>
+                        </h2>
+
+
+                        <p class="mt-7
+                            text-[#3A2924]/65
+                            leading-relaxed
+                            text-base sm:text-lg">
+                            Saat tinggal di Jogja, pemilik
+                            Piww Crochet mulai belajar crochet
+                            bersama seorang teman.
+                        </p>
+
+
+                        <p class="mt-5
+                            text-[#3A2924]/65
+                            leading-relaxed
+                            text-base sm:text-lg">
+                            Berbulan-bulan belajar, mencoba,
+                            memperbaiki, dan terus berlatih
+                            sampai akhirnya semakin menguasai
+                            crochet.
+                        </p>
+
+
+                        <p class="mt-5
+                            text-[#3A2924]/65
+                            leading-relaxed
+                            text-base sm:text-lg">
+                            Setelah mulai percaya diri dengan
+                            hasil karyanya, beberapa crochet
+                            kemudian dibagikan melalui WhatsApp
+                            Story dan Instagram.
+                        </p>
+
+
+                        <p class="mt-5
+                            text-[#3A2924]/65
+                            leading-relaxed
+                            text-base sm:text-lg">
+                            Ternyata banyak yang tertarik dan
+                            mulai datang pesanan. Dari sesuatu
+                            yang awalnya iseng, Piww Crochet
+                            perlahan tumbuh menjadi ruang untuk
+                            berkarya sekaligus menghasilkan.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- JOURNEY CARD -->
+
+                    <div>
+
+                        <div class="bg-[#3A2924]
+                            text-[#F7F1E5]
+                            rounded-[3rem]
+                            p-8 sm:p-10
+                            rotate-2
+                            shadow-xl">
+
+                            <p class="text-xs
+                                uppercase
+                                tracking-[0.3em]
+                                text-[#E8C95A]
+                                font-bold">
+                                The journey
+                            </p>
+
+
+                            <div class="mt-8
+                                space-y-7">
+
+
+                                <div class="flex gap-5">
+
+                                    <span class="text-2xl">
+                                        🧶
+                                    </span>
+
+                                    <div>
+
+                                        <h3 class="font-display
+                                            text-2xl">
+                                            Learn
+                                        </h3>
+
+                                        <p class="mt-1
+                                            text-white/55
+                                            text-sm">
+                                            Berawal dari belajar
+                                            bersama teman di Jogja.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="flex gap-5">
+
+                                    <span class="text-2xl">
+                                        ✦
+                                    </span>
+
+                                    <div>
+
+                                        <h3 class="font-display
+                                            text-2xl">
+                                            Practice
+                                        </h3>
+
+                                        <p class="mt-1
+                                            text-white/55
+                                            text-sm">
+                                            Terus berlatih sampai
+                                            semakin menguasai.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="flex gap-5">
+
+                                    <span class="text-2xl">
+                                        ♡
+                                    </span>
+
+                                    <div>
+
+                                        <h3 class="font-display
+                                            text-2xl">
+                                            Create
+                                        </h3>
+
+                                        <p class="mt-1
+                                            text-white/55
+                                            text-sm">
+                                            Membagikan karya dan
+                                            mulai menerima pesanan.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="pt-6
+                                    border-t
+                                    border-white/10">
+
+                                    <p class="font-display
+                                        italic
+                                        text-2xl">
+                                        "Every stitch has a story."
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             GALLERY
+        =================================================== -->
+
+        <section class="bg-[#F7F1E5]
+            py-24 sm:py-28 lg:py-32">
+
+            <div class="max-w-7xl
+                mx-auto
+                px-5 sm:px-8">
+
+                <div class="text-center
+                    max-w-2xl
+                    mx-auto">
+
+                    <p class="uppercase
+                        tracking-[0.3em]
+                        text-xs
+                        text-[#C98F76]
+                        font-bold">
+                        From our hands
+                    </p>
+
+
+                    <h2 class="font-display
+                        text-5xl
+                        sm:text-6xl
+                        mt-4">
+                        A few little pieces.
+                    </h2>
+
+
+                    <p class="mt-5
+                        text-[#3A2924]/60">
+                        Some of the things we've made along the way.
+                    </p>
+
+                </div>
+
+
+
+                <!-- GALLERY GRID -->
+
+                <div class="mt-14
+                    grid
+                    grid-cols-2
+                    md:grid-cols-4
+                    gap-4">
+
+
+                    <!-- PHOTO 1 -->
+
+                    <div class="gallery-card
+                        overflow-hidden
+                        rounded-[1.5rem]
+                        h-64">
+
+                        <img src="assets/anya/trio.jpeg" alt="Piww Crochet handmade" class="gallery-img
+                            w-full h-full
+                            object-cover">
+
+                    </div>
+
+
+                    <!-- PHOTO 2 -->
+
+                    <div class="gallery-card
+                        overflow-hidden
+                        rounded-[1.5rem]
+                        h-80
+                        md:mt-8">
+
+                        <img src="assets/buket/tasmomoyo.jpeg" alt="Dompet crochet Piww Crochet" class="gallery-img
+                            w-full h-full
+                            object-cover
+                            object-[center_100%]
+                            gallery-img">
+
+                    </div>
+
+
+                    <!-- PHOTO 3 -->
+
+                    <div class="gallery-card
+                        overflow-hidden
+                        rounded-[1.5rem]
+                        h-64">
+
+                        <img src="assets/buket/triosemut.jpeg" alt="Tas crochet Piww Crochet" class="gallery-img
+                            w-full h-full
+                            object-cover">
+
+                    </div>
+
+
+                    <!-- PHOTO 4 -->
+
+                    <div class="gallery-card
+                        overflow-hidden
+                        rounded-[1.5rem]
+                        h-80
+                        md:mt-8">
+
+                        <img src="assets/anya/dompetreceh.jpeg" alt="Dompet receh crochet Piww Crochet" class="gallery-img
+                            w-full h-full
+                            object-cover">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CONTACT
+        =================================================== -->
+
+        <section id="contact" class="bg-[#E8C95A]
+            py-24 sm:py-28 lg:py-32">
+
+            <div class="max-w-5xl
+                mx-auto
+                px-5 sm:px-8
+                text-center">
+
+                <p class="uppercase
+                    tracking-[0.3em]
+                    text-xs
+                    font-bold
+                    text-[#3A2924]/60">
+                    Let's talk
+                </p>
+
+
+                <h2 class="font-display
+                    text-5xl
+                    sm:text-6xl
+                    lg:text-7xl
+                    mt-4
+                    leading-tight">
+                    Let's create
+                    <span class="italic">
+                        something cute.
+                    </span>
+                </h2>
+
+
+                <p class="mt-6
+                    max-w-xl
+                    mx-auto
+                    text-[#3A2924]/65
+                    leading-relaxed">
+                    Mau pesan, tanya produk, atau punya ide
+                    custom? Ceritakan saja lewat WhatsApp.
+                    Nanti kita cek bersama. ♡
+                </p>
+
+
+                <a href="https://wa.me/6283879288350?text=Hi%20Piww%20Crochet!%20Aku%20mau%20tanya%20tentang%20produk%20crochet%20dong%20%F0%9F%A7%B6"
+                    target="_blank" class="btn
+                    inline-flex
+                    items-center
+                    gap-3
+                    mt-9
+                    bg-[#3A2924]
+                    text-[#F7F1E5]
+                    rounded-full
+                    px-8 py-4
+                    font-bold">
+                    WhatsApp Piww Crochet
+                    <span>↗</span>
+                </a>
+
+
+                <div class="mt-10
+                    flex flex-wrap
+                    justify-center
+                    gap-x-8
+                    gap-y-4
+                    text-sm
+                    font-semibold">
+
+                    <span>
+                        📍 Setu, Bekasi
+                    </span>
+
+
+                    <a href="https://instagram.com/pipipii.aa" target="_blank" class="hover:underline">
+                        📸 @pipipii.aa
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+
+    <footer class="bg-[#3A2924]
+        text-[#F7F1E5]
+        py-12">
+
+        <div class="max-w-7xl
+            mx-auto
+            px-5 sm:px-8">
+
+            <div class="flex
+                flex-col
+                sm:flex-row
+                justify-between
+                gap-8">
+
+
+                <div>
+
+                    <h3 class="font-display
+                        text-3xl">
+                        Piww Crochet
+                    </h3>
+
+                    <p class="mt-2
+                        text-white/50
+                        text-sm">
+                        Crochet With Love ♡
+                    </p>
+
+                </div>
+
+
+                <div class="flex
+                    flex-wrap
+                    gap-6
+                    text-sm
+                    text-white/60">
+
+                    <a href="#home" class="hover:text-white">
+                        Home
+                    </a>
+
+                    <a href="#shop" class="hover:text-white">
+                        Shop
+                    </a>
+
+                    <a href="#custom" class="hover:text-white">
+                        Custom
+                    </a>
+
+                    <a href="#about" class="hover:text-white">
+                        Our Story
+                    </a>
+
+                    <a href="https://instagram.com/pipipii.aa" target="_blank" class="hover:text-white">
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="border-t
+                border-white/10
+                mt-10
+                pt-6
+                text-xs
+                text-white/35
+                flex
+                flex-col
+                sm:flex-row
+                justify-between
+                gap-2">
+
+                <span>
+                    © 2026 Piww Crochet
+                </span>
+
+                <span>
+                    Handmade in Setu, Bekasi
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Compact mobile navigation -->
+    <nav class="piww-mobile-nav" aria-label="Mobile navigation">
+        <a href="#home"><span class="nav-icon">⌂</span><span>Home</span></a>
+        <a href="#shop"><span class="nav-icon">♡</span><span>Shop</span></a>
+        <a href="#collections"><span class="nav-icon">✿</span><span>Gallery</span></a>
+        <a href="#contact"><span class="nav-icon">✉</span><span>Contact</span></a>
+    </nav>
+
+    <!-- ==================================================
+         JAVASCRIPT
+    =================================================== -->
+
+    <!-- Desktop cursor-following crochet thread -->
+    <svg id="piwwCursorYarn" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path id="piwwCursorThread" d="" />
+        <g id="piwwCursorBall" transform="translate(-30 -30)">
+            <circle class="cursor-yarn-ball" cx="0" cy="0" r="5" />
+            <path d="M-3 -1 C-2 -5 3 -4 3 -1 C4 2 0 4 -3 2" fill="none" stroke="#3A2924" stroke-width=".8" />
+        </g>
+    </svg>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileWelcome = document.getElementById("piwwMobileWelcome");
+            const openWelcome = document.getElementById("piwwOpenWelcome");
+            if (mobileWelcome && openWelcome) {
+                openWelcome.addEventListener("click", () => {
+                    mobileWelcome.classList.add("is-dismissed");
+                    window.setTimeout(() => { mobileWelcome.style.display = "none"; }, 500);
+                });
+            }
+
+            // Mobile navigation: safely attach only if the elements exist.
+            const menuButton = document.getElementById("menuButton");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("active");
+                });
+                mobileLinks.forEach((link) => {
+                    link.addEventListener("click", () => mobileMenu.classList.remove("active"));
+                });
+            }
+
+            // Reveal product and gallery cards as they enter the viewport.
+            const revealItems = document.querySelectorAll(
+                ".product-card, .gallery-card, #collections .relative.z-10 > div"
+            );
+            revealItems.forEach((element, index) => {
+                element.classList.add("piww-reveal", `piww-delay-${(index % 3) + 1}`);
+            });
+
+            if ("IntersectionObserver" in window) {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("piww-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+
+                document.querySelectorAll(".piww-reveal").forEach((element) => revealObserver.observe(element));
+            } else {
+                document.querySelectorAll(".piww-reveal").forEach((element) => element.classList.add("piww-visible"));
+            }
+
+            // Visible crochet yarn trail follows a desktop mouse cursor.
+            const cursorSvg = document.getElementById("piwwCursorYarn");
+            const cursorThread = document.getElementById("piwwCursorThread");
+            const cursorBall = document.getElementById("piwwCursorBall");
+
+            if (cursorSvg && cursorThread && cursorBall && window.innerWidth > 767) {
+                const points = [];
+                const maxPoints = 18;
+                cursorSvg.setAttribute("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`);
+
+                window.addEventListener("pointermove", (event) => {
+                    if (event.pointerType && event.pointerType !== "mouse") return;
+                    const x = event.clientX;
+                    const y = event.clientY;
+                    points.push({ x, y });
+                    if (points.length > maxPoints) points.shift();
+
+                    let path = `M ${points[0].x} ${points[0].y}`;
+                    for (let i = 1; i < points.length; i++) {
+                        const prev = points[i - 1];
+                        const current = points[i];
+                        const midX = (prev.x + current.x) / 2;
+                        const midY = (prev.y + current.y) / 2;
+                        path += ` Q ${prev.x} ${prev.y} ${midX} ${midY}`;
+                    }
+                    if (points.length > 1) {
+                        const last = points[points.length - 1];
+                        path += ` T ${last.x} ${last.y}`;
+                    }
+
+                    cursorThread.setAttribute("d", path);
+                    cursorBall.setAttribute("transform", `translate(${x} ${y})`);
+                    cursorSvg.classList.add("is-active");
+                }, { passive: true });
+
+                window.addEventListener("resize", () => {
+                    cursorSvg.setAttribute("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`);
+                });
+                document.addEventListener("mouseleave", () => cursorSvg.classList.remove("is-active"));
+                window.addEventListener("blur", () => cursorSvg.classList.remove("is-active"));
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
